@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Просмотр{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Инпуты</h1>
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Создан</th>
+            <th scope="col">Редактирован</th>
+            <th scope="col">Данные</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in result %}
+            <tr>
+                <th scope="row">{{ item.id }}</th>
+                <td style="width: 11%">{{ item.created_at.strftime('%Y-%m-%d %H:%m') }}</td>
+                <td style="width: 11%">{% if None == item.updated_at %}
+                    {{ item.updated_at }}
+                {% else %}
+                    {{ item.updated_at.strftime('%Y-%m-%d %H:%m') }}
+                {% endif %}
+                </td>
+                <td>{{ item.data }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+{% endblock %}
+
+
