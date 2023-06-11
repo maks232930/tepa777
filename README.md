@@ -11,7 +11,7 @@ sudo service nginx status
 
 Установка всех необходимых элементов
 sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
-sudo apt install python3-ven
+sudo apt install python3-venv
 
 Создание виртуальной среды Python
 python3 -m venv venv
