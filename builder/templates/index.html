@@ -12,7 +12,8 @@
 
         <div class="flex-nowrap">
             <button type="button" class="btn btn-primary btn-lg btn-block" style="width: 100%">Добавить</button>
-            <button type="submit"  id="add" class="btn btn-success btn-lg btn-block" style="width: 100%; margin-top: 10px">
+            <button type="submit" id="add" class="btn btn-success btn-lg btn-block"
+                    style="width: 100%; margin-top: 10px">
                 Сохранить
             </button>
 
@@ -23,3 +24,14 @@
 
 {% endblock %}
 
+{% block footer_text %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% else %}
+            Как понял, так и сделал)
+        {% endif %}
+    {% endwith %}
+{% endblock %}
