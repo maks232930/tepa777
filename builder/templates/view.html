@@ -12,7 +12,7 @@
         <tr>
             <th scope="col">id</th>
             <th scope="col">Создан</th>
-            <th scope="col">Редактирован</th>
+{#            <th scope="col">Редактирован</th>#}
             <th scope="col">Данные</th>
         </tr>
         </thead>
@@ -20,13 +20,8 @@
         {% for item in result %}
             <tr>
                 <th scope="row">{{ item.id }}</th>
-                <td style="width: 11%">{{ item.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
-                <td style="width: 11%">{% if None == item.updated_at %}
-                    {{ item.updated_at }}
-                {% else %}
-                    {{ item.updated_at.strftime('%Y-%m-%d %H:%M:%S') }}
-                {% endif %}
-                </td>
+                <td>{{ item.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+
                 <td>{{ item.data }}</td>
             </tr>
         {% endfor %}
@@ -36,6 +31,12 @@
 
         </tbody>
     </table>
+{#    <td style="width: 11%">{% if None == item.updated_at %}#}
+{#        {{ item.updated_at }}#}
+{#    {% else %}#}
+{#        {{ item.updated_at.strftime('%Y-%m-%d %H:%M:%S') }}#}
+{#    {% endif %}#}
+{#    </td>#}
 
 {% endblock %}
 
