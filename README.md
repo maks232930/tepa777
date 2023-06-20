@@ -1,6 +1,6 @@
 # tepa777
 
-# ВРЕМЕННО ДОСТУПЕН ПО АДРЕСУ: http://95.128.71.65/
+# ВРЕМЕННО ДОСТУПЕН ПО АДРЕСУ: https://python-top.space/
 
 sudo apt update
 
