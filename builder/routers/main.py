@@ -33,10 +33,7 @@ def index():
         db.session.commit()
         return redirect('/')
 
-    context = {
-    }
-
-    return render_template('index.html', **context)
+    return render_template('index.html')
 
 
 @main.route('/views/')
