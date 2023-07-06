@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, flash
 
 from builder.models.result import Result
 from builder.extensions import db
-from builder.utils import generate_inputs_name, check_values
+from builder.utils import check_result
 
 main = Blueprint('main', __name__, static_folder='../static', template_folder='../templates')
 
@@ -10,24 +10,13 @@ main = Blueprint('main', __name__, static_folder='../static', template_folder='.
 @main.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        result = None
         form = request.form
 
-        if len(form) == 0 or check_values(form):
+        result = check_result(form)
+
+        if not result:
             flash('Не трогай!!!')
             return redirect('/')
-        elif len(form) == 1:
-            result = Result(data={'input': list(form.values())[0]})
-        elif len(form) > 1:
-            data = {}
-            keys = generate_inputs_name(len(form))
-            values = list(form.values())
-            keys_values = [[keys[i], values[i]] for i in range(len(form))]
-
-            for key, value in keys_values:
-                data[key] = value
-
-            result = Result(data=data)
 
         db.session.add(result)
         db.session.commit()
