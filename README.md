@@ -1,7 +1,5 @@
 # tepa777
 
-# ВРЕМЕННО ДОСТУПЕН ПО АДРЕСУ: https://python-top.space/
-
 sudo apt update
 
 ## Установка Nginx
